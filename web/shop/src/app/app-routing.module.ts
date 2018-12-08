@@ -9,7 +9,7 @@ import {EditProductComponent} from "./admin-panel/edit-product/edit-product.comp
 import {OrdersComponent} from "./admin-panel/orders/orders.component";
 import {WarehouseComponent} from "./admin-panel/warehouse/warehouse.component";
 import {ProductCategoriesResolve, ProductCategoryResolve} from "./shared/resolve/product-category.resolve";
-import {ProductResolve} from "./shared/resolve/product.reslove";
+import {ProductsResolve} from "./shared/resolve/product.reslove";
 
 const routes: Routes = [
   {
@@ -42,7 +42,7 @@ const routes: Routes = [
         path: 'products',
         component: ProductsComponent,
         resolve: {
-          product: ProductResolve
+          products: ProductsResolve
         }
       },
       {
