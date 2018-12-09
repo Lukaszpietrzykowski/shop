@@ -10,6 +10,7 @@ import {OrdersComponent} from "./admin-panel/orders/orders.component";
 import {WarehouseComponent} from "./admin-panel/warehouse/warehouse.component";
 import {ProductCategoriesResolve, ProductCategoryResolve} from "./shared/resolve/product-category.resolve";
 import {ProductResolve, ProductsResolve} from "./shared/resolve/product.reslove";
+import {WarehouseResolve} from "./shared/resolve/warehouse.resolve";
 
 const routes: Routes = [
   {
@@ -36,7 +37,11 @@ const routes: Routes = [
       },
       {
         path: 'warehouse',
-        component: WarehouseComponent
+        component: WarehouseComponent,
+        resolve:{
+          warehouse: WarehouseResolve,
+        }
+
       },
       {
         path: 'products',

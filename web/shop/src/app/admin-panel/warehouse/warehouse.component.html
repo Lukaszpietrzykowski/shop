@@ -9,18 +9,18 @@
     <th>Ilość w magazynie</th>
     <th>Akcje</th>
   </tr>
-  <tr *ngFor="let product of products; let rowIndex = index">
+  <tr *ngFor="let warehouseItem of warehouse; let rowIndex = index">
     <td>
-      {{ product.id }}
+      {{ warehouseItem.id }}
     </td>
     <td>
-      {{ product.name }}
+      {{ warehouseItem.productDTO.name }}
     </td>
     <td>
-      {{ product.price }}
+      {{ warehouseItem.productDTO.price }}
     </td>
     <td>
-      {{ product.count }}
+      {{ warehouseItem.quantity }}
     </td>
     <td>
       <button matTooltip="Aktualizuj stan magazynowy" mat-button><mat-icon>edit</mat-icon></button>
