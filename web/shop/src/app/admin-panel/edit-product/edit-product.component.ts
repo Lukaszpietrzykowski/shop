@@ -3,6 +3,7 @@ import {ProductModel} from "../../shared/model/product.model";
 import {Location} from "@angular/common";
 import {ActivatedRoute} from "@angular/router";
 import {ProductService} from "../../shared/service/product.service";
+import {ProductCategoryModel} from "../../shared/model/product-category.model";
 
 @Component({
   selector: 'app-edit-product',
@@ -12,6 +13,8 @@ import {ProductService} from "../../shared/service/product.service";
 export class EditProductComponent implements OnInit {
 
   product: ProductModel = new ProductModel();
+  productCategories: Array<ProductCategoryModel> = [];
+
 
 
   constructor(private productService: ProductService,
@@ -22,7 +25,9 @@ export class EditProductComponent implements OnInit {
     if (this.route.snapshot.data['product']) {
       this.product = this.route.snapshot.data['product'];
     }
-    this.product.productCategoryDTO.id = 16;
+    this.productCategories = this.route.snapshot.data['productCategory'];
+
+    // this.product.productCategoryDTO.id = 16;
   }
 
     saveProduct(){
