@@ -7,5 +7,5 @@ import sdaproject.server.entity.WarehouseEntity;
 import java.util.List;
 
 public interface WarehouseService extends AbstractService<WarehouseEntity, WarehouseDTO> {
-    /*List<DictionaryDTO> getWarehouseDictionary();*/
+
 }

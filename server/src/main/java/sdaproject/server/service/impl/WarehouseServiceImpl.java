@@ -23,11 +23,6 @@ public class WarehouseServiceImpl extends AbstractServiceImpl<WarehouseEntity, W
     }
 
 
-   /* @Override
-    public List<DictionaryDTO> getWarehouseDictionary() {
-        return warehouseRepository.getWarehouseDictionary();
-    }
-*/
     @Override
     protected JpaRepository<WarehouseEntity, Long> getRepo() {
         return warehouseRepository;
