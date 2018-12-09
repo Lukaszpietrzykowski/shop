@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface WarehouseRepository extends JpaRepository<WarehouseEntity, Long> {
 
-    @Query("SELECT new sdaproject.server.dto.DictionaryDTO(id, name) FROM WarehouseEntity")
-    List<DictionaryDTO> getWarehouseEntity();
+    @Query("SELECT new sdaproject.server.dto.DictionaryDTO(productEntity, quantity) FROM WarehouseEntity")
+    List<DictionaryDTO> getWarehouseDictionary();
 }

@@ -11,6 +11,7 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
+
     @Query("SELECT new sdaproject.server.dto.DictionaryDTO(id, name) FROM ProductEntity")
     List<DictionaryDTO> getProductDictionary();
 

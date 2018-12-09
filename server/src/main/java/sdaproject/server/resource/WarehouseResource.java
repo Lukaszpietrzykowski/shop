@@ -10,6 +10,7 @@ import sdaproject.server.service.WarehouseService;
 @RestController
 @RequestMapping("api/warehouse")
 public class WarehouseResource extends AbstractResource<WarehouseEntity, WarehouseDTO> {
+
     private final WarehouseService warehouseService;
 
     public WarehouseResource(WarehouseService warehouseService) {
@@ -19,6 +20,6 @@ public class WarehouseResource extends AbstractResource<WarehouseEntity, Warehou
 
     @Override
     public AbstractService<WarehouseEntity, WarehouseDTO> getService() {
-        return null;
+        return warehouseService;
     }
 }
