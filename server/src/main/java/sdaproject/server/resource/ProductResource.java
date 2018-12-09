@@ -23,5 +23,4 @@ public class ProductResource extends AbstractResource<ProductEntity, ProductDTO>
     }
 
 
-
 }

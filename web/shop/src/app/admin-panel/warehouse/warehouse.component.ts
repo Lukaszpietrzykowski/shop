@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ProductModel} from "../../shared/model/product.model";
 
 @Component({
   selector: 'app-warehouse',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WarehouseComponent implements OnInit {
 
-  products = [];
+
 
   constructor() { }
 
