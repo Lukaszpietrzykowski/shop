@@ -10,6 +10,27 @@
           <input [(ngModel)]="product.name" name="name" matInput placeholder="Nazwa produktu">
         </mat-form-field>
       </form>
+      <form>
+        <mat-form-field class="example-full-widtch">
+          <input [(ngModel)]="product.price" name="price" matInput placeholder="Cena">
+        </mat-form-field>
+      </form>
+      <form>
+        <mat-form-field class="example-full-widtch">
+          <input [(ngModel)]="product.description" name="description" matInput placeholder="Opis">
+        </mat-form-field>
+      </form>
+      <form>
+
+        <mat-form-field class="half-widtch">
+          <mat-select placeholder="Kategoria produktu" [(ngModel)]="product.productCategoryDTO.id" name="category">
+            <mat-option *ngFor="let category of productCategories" [value]="category.id">
+              {{category.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </form>
     </section>
   </mat-card-content>
   <mat-card-actions>
