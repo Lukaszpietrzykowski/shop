@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface WarehouseService extends AbstractService<WarehouseEntity, WarehouseDTO> {
 
+
 }

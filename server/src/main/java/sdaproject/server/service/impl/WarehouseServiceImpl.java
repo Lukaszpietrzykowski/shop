@@ -32,4 +32,6 @@ public class WarehouseServiceImpl extends AbstractServiceImpl<WarehouseEntity, W
     protected Converter<WarehouseEntity, WarehouseDTO> getConverter() {
         return warehouseConverter;
     }
+
 }
+

@@ -18,8 +18,10 @@ import { WarehouseComponent } from './admin-panel/warehouse/warehouse.component'
 import {ProductCategoryService} from "./shared/service/product-category.service";
 import {ProductCategoriesResolve, ProductCategoryResolve} from "./shared/resolve/product-category.resolve";
 import {ProductService} from "./shared/service/product.service";
-import {ProductResolve, ProductsResolve} from "./shared/resolve/product.reslove";
-import {WarehouseResolve} from "./shared/resolve/warehouse.resolve";
+import {ProductResolve, ProductsDictionaryResolve, ProductsResolve} from "./shared/resolve/product.reslove";
+import {WarehouseResolve, WarehousesResolve} from "./shared/resolve/warehouse.resolve";
+import { EditWarehouseComponent } from './admin-panel/edit-warehouse/edit-warehouse.component';
+import {WarehouseService} from "./shared/service/warehouse.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {WarehouseResolve} from "./shared/resolve/warehouse.resolve";
     EditProductCategoryComponent,
     EditProductComponent,
     OrdersComponent,
-    WarehouseComponent
+    WarehouseComponent,
+    EditWarehouseComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,10 @@ import {WarehouseResolve} from "./shared/resolve/warehouse.resolve";
     ProductService,
     ProductResolve,
     ProductsResolve,
-    WarehouseResolve
+    WarehouseResolve,
+    WarehouseService,
+    WarehousesResolve,
+    ProductsDictionaryResolve
   ],
   bootstrap: [MainComponent]
 })

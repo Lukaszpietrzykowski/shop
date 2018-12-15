@@ -10,7 +10,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./warehouse.component.css']
 })
 export class WarehouseComponent implements OnInit {
-  warehouse: Array<WarehouseModel> = [];
+  warehouse: WarehouseModel = new WarehouseModel();
 
   constructor(private warehouseService: WarehouseService,
               private route: ActivatedRoute) {
@@ -19,6 +19,12 @@ export class WarehouseComponent implements OnInit {
   ngOnInit() {
     this.warehouse = this.route.snapshot.data['warehouse'];
     console.log(this.warehouse)
+
+  }
+  removeWarehouseProduct(warehouseId: number, index: number){
+    this.warehouseService.removeWarehouseProduct(warehouseId).subscribe(() => {
+      this.warehouse.splice(index, 1);
+    });
   }
 
 

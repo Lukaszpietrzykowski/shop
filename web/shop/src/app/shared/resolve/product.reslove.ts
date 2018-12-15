@@ -21,3 +21,13 @@ export class ProductResolve implements Resolve<any> {
     return this.productService.getProduct(route.params['id']);
   }
 }
+
+@Injectable()
+export class ProductsDictionaryResolve implements Resolve<any> {
+
+  constructor(private productService: ProductService) {}
+
+  resolve() {
+    return this.productService.getProductDictionary();
+  }
+}

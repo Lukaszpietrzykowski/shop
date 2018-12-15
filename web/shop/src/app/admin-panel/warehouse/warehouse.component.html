@@ -1,5 +1,5 @@
 <section class="action-buttons">
-  <button mat-stroked-button color="primary" routerLink="add">Dodaj produkt</button>
+  <button mat-stroked-button color="primary" routerLink="add">Dodaj produkt do magazynu</button>
 </section>
 <table class="table-details">
   <tr>
@@ -23,7 +23,9 @@
       {{ warehouseItem.quantity }}
     </td>
     <td>
-      <button matTooltip="Aktualizuj stan magazynowy" mat-button><mat-icon>edit</mat-icon></button>
+      <button [routerLink]="['/', 'admin-panel', 'warehouse', 'edit', warehouseItem.id]" matTooltip="Aktualizuj stan magazynowy" mat-button><mat-icon>edit</mat-icon></button>
+      <button (click)="removeWarehouseProduct(warehouse.id, rowIndex)" matTooltip="Usuń produkt z magazynu" mat-button><mat-icon>delete</mat-icon></button>
+
     </td>
   </tr>
 </table>

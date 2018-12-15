@@ -5,7 +5,6 @@ export class ProductModel{
   name: string = null;
   description: string = null;
   productCategoryDTO: ProductCategoryModel = new ProductCategoryModel();
-
   price: number = null;
 
 

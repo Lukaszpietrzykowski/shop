@@ -26,8 +26,6 @@ export class EditProductComponent implements OnInit {
       this.product = this.route.snapshot.data['product'];
     }
     this.productCategories = this.route.snapshot.data['productCategory'];
-
-    // this.product.productCategoryDTO.id = 16;
   }
 
     saveProduct(){

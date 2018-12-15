@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "warehouse")
 public class WarehouseEntity extends AbstractEntity {
+
     @OneToOne
     @JoinColumn(name = "product_id")
     private ProductEntity productEntity;

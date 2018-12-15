@@ -10,5 +10,4 @@ import java.util.List;
 
 @Repository
 public interface WarehouseRepository extends JpaRepository<WarehouseEntity, Long> {
-
 }

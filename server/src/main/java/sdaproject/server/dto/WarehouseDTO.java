@@ -1,7 +1,9 @@
 package sdaproject.server.dto;
 
 public class WarehouseDTO extends AbstractDTO{
+
     private ProductDTO productDTO;
+
     private Integer quantity;
 
     public ProductDTO getProductDTO() {
