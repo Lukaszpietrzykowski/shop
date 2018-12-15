@@ -12,6 +12,8 @@ import {ProductCategoriesResolve, ProductCategoryResolve} from "./shared/resolve
 import {ProductResolve, ProductsDictionaryResolve, ProductsResolve} from "./shared/resolve/product.reslove";
 import {WarehouseResolve, WarehousesResolve} from "./shared/resolve/warehouse.resolve";
 import {EditWarehouseComponent} from "./admin-panel/edit-warehouse/edit-warehouse.component";
+import {LoginComponent} from "./login/login.component";
+import {GuestGuard} from "./shared/guard/guest.guard";
 
 const routes: Routes = [
   {
@@ -24,6 +26,12 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: "login",
+    component: LoginComponent,
+    canActivate: [GuestGuard]
+  },
+
+  {
     path: 'admin-panel',
     component: AdminPanelComponent,
     children: [
@@ -32,6 +40,11 @@ const routes: Routes = [
         redirectTo: 'products',
         pathMatch: 'prefix'
       },
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+
       {
         path: 'orders',
         component: OrdersComponent

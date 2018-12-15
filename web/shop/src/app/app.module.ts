@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 
 import {AppRoutingModule} from "./app-routing.module";
 import { MainComponent } from './layout/main/main.component';
@@ -22,6 +22,14 @@ import {ProductResolve, ProductsDictionaryResolve, ProductsResolve} from "./shar
 import {WarehouseResolve, WarehousesResolve} from "./shared/resolve/warehouse.resolve";
 import { EditWarehouseComponent } from './admin-panel/edit-warehouse/edit-warehouse.component';
 import {WarehouseService} from "./shared/service/warehouse.service";
+import {LoginComponent} from "./login/login.component";
+import {AppService} from "./shared/service/app.service";
+import {AuthService} from "./shared/service/auth.service";
+
+export function initLoggedUserFactory(appService: AppService) {
+  return () => appService.getLoggedUserInfo();
+}
+
 
 @NgModule({
   declarations: [
@@ -35,7 +43,9 @@ import {WarehouseService} from "./shared/service/warehouse.service";
     EditProductComponent,
     OrdersComponent,
     WarehouseComponent,
-    EditWarehouseComponent
+    EditWarehouseComponent,
+    LoginComponent
+
   ],
   imports: [
     BrowserModule,
@@ -45,6 +55,13 @@ import {WarehouseService} from "./shared/service/warehouse.service";
     SharedModule
   ],
   providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initLoggedUserFactory,
+      deps: [AppService],
+      multi: true
+    },
+
     ProductCategoryService,
     ProductCategoriesResolve,
     ProductCategoryResolve,
@@ -54,8 +71,12 @@ import {WarehouseService} from "./shared/service/warehouse.service";
     WarehouseResolve,
     WarehouseService,
     WarehousesResolve,
-    ProductsDictionaryResolve
+    ProductsDictionaryResolve,
+    AuthService,
+    AppService
+
   ],
   bootstrap: [MainComponent]
 })
 export class AppModule { }
+
