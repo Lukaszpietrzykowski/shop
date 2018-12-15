@@ -3,6 +3,7 @@ import {Observable, Subject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
 import {WarehouseModel} from "../model/warehouse.model";
+import {ProductModel} from "../model/product.model";
 
 
 @Injectable({
@@ -10,14 +11,14 @@ import {WarehouseModel} from "../model/warehouse.model";
 })
 export class WarehouseService {
 
-  private warehouse: WarehouseModel = new WarehouseModel();
-  private warehouseStream: Subject<WarehouseModel> = new Subject();
+  private warehouse:  Array<WarehouseModel> = [];
+  private warehouseStream: Subject<Array<WarehouseModel>> = new Subject();
 
   constructor(private http: HttpClient) { }
 
-  public getWarehouses() : Observable<WarehouseModel>{
+  public getWarehouses() : Observable<Array<WarehouseModel>> {
     return this.http.get("/api/warehouse").pipe(
-      map((response: WarehouseModel) => {
+      map((response: Array<WarehouseModel>) => {
         this.warehouse = response;
         this.warehouseStream.next(this.warehouse);
         return this.warehouse;
