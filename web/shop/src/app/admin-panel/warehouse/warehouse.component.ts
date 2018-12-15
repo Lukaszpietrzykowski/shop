@@ -22,10 +22,14 @@ export class WarehouseComponent implements OnInit {
 
   }
   removeWarehouseProduct(warehouseId: number, index: number){
-    this.warehouseService.removeWarehouseProduct(warehouseId).subscribe(() => {
-      this.warehouse.splice(index, 1);
-    });
-  }
+
+
+
+}
+
+
+
+
 
 
 }

@@ -1,0 +1,31 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Magazyn produktow</mat-card-title>
+    <mat-card-subtitle>Dodawanie / Edycja</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <section class="form-section">
+      <form>
+        <mat-form-field class="example-full-width">
+          <input [(ngModel)]="warehouse.quantity" name="quantity" matInput placeholder="Ilosc produktu w magazynie">
+        </mat-form-field>
+      </form>
+      <form>
+        <mat-form-field class="half-widtch">
+          <mat-select placeholder="Produkt" [(ngModel)]="warehouse.productDTO.id" name="product">
+            <mat-option *ngFor="let productName of products" [value]="productName.id">
+              {{productName.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </form>
+    </section>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="button-row">
+      <button (click)="back()" mat-flat-button color="accent">Wróć</button>
+      <button (click)="saveWarehouse()" mat-flat-button color="primary">Zapisz</button>
+    </div>
+  </mat-card-actions>
+</mat-card>
