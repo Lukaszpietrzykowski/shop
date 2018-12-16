@@ -1,23 +1,24 @@
-<mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile *ngFor="let warehouseItem of warehouse; let rowIndex = index">
-    <mat-card class="example-full-width">
-
-      <mat-card-title>
-        {{warehouseItem.productDTO.name}}
-      </mat-card-title>
-
-      <mat-divider></mat-divider>
-
+<div class="card-deck-container">
+  <section class="card-item-wrapper" *ngFor="let warehouseItem of warehouse">
+    <mat-card class="card-item">
+      <mat-card-header>
+        <mat-card-title>{{ warehouseItem.productDTO.name }}</mat-card-title>
+        <mat-card-subtitle>{{ warehouseItem.productDTO.productCategoryDTO.name }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="assets\img\image.png" [alt]="warehouseItem.productDTO.name">
       <mat-card-content>
-        Cena: {{warehouseItem.productDTO.price}}
+        <section class="form-section">
+          <h3 class="price">{{ warehouseItem.productDTO.price | number : '1.2-2' }} zł</h3>
+        </section>
       </mat-card-content>
-
-      <mat-divider></mat-divider>
-
-      <mat-card-footer>
-        Ilość: {{warehouseItem.quantity}}
-      </mat-card-footer>
-
+      <mat-card-actions>
+        <div class="button-row">
+          <button mat-flat-button color="accent">Więcej</button>
+          <button mat-flat-button color="primary">Kup</button>
+          <!--<button *ngIf="!isInCart(warehouseItem.id)" (click)="addToCart(warehouseItem)" mat-flat-button color="primary">Kup</button>-->
+          <!--<button *ngIf="isInCart(warehouseItem.id)" [routerLink]="['/', 'cart']" mat-flat-button color="primary">Koszyk</button>-->
+        </div>
+      </mat-card-actions>
     </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+  </section>
+</div>
