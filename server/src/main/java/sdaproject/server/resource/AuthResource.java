@@ -21,7 +21,6 @@ public class AuthResource {
     }
 
     @GetMapping("/logged-user-info")
-    @PreAuthorize("hasRole('USER')")
     public UserDTO getLoggedUserInfo() {
         return securityUtils.getCurrentUser().map(userConverter::convertToDto).orElse(null);
     }

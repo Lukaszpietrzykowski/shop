@@ -12,27 +12,17 @@ public class UserConverter implements Converter<UserEntity, UserDTO> {
 
     @Override
     public UserEntity convertToEntity(UserDTO dto) {
-        UserEntity entity = new UserEntity();
-
-        entity.setId(dto.getId());
-        entity.setName(dto.getName());
-        entity.setLastname(dto.getLastname());
-        entity.setEmail(dto.getEmail());
-        entity.setRoles(dto.getRoles().stream().map(RoleEntity::new).collect(Collectors.toList()));
-
-        return entity;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public UserDTO convertToDto(UserEntity entity) {
         UserDTO dto = new UserDTO();
-
         dto.setId(entity.getId());
         dto.setName(entity.getName());
         dto.setLastname(entity.getLastname());
         dto.setEmail(entity.getEmail());
         dto.setRoles(entity.getRoles().stream().map(RoleEntity::getRole).collect(Collectors.toList()));
-
         return dto;
     }
 }

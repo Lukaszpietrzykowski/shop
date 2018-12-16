@@ -15,21 +15,22 @@ import java.io.IOException;
 @Component
 public class AuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
-	private final ObjectMapper objectMapper;
-	private final UserConverter userConverter;
+    private final ObjectMapper objectMapper;
+    private final UserConverter userConverter;
 
-	public AuthenticationSuccessHandler(ObjectMapper objectMapper, UserConverter userConverter) {
-		this.objectMapper = objectMapper;
-		this.userConverter = userConverter;
-	}
+    public AuthenticationSuccessHandler(ObjectMapper objectMapper, UserConverter userConverter) {
+        this.objectMapper = objectMapper;
+        this.userConverter = userConverter;
+    }
 
-	@Override
-	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
+    @Override
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws IOException {
-		clearAuthenticationAttributes(request);
+        clearAuthenticationAttributes(request);
         UserDTO user = userConverter.convertToDto((UserEntity) authentication.getPrincipal());
-		String loggedUser = objectMapper.writeValueAsString(user);
-		response.setContentType("application/json");
-		response.getWriter().write(loggedUser);
-	}
+        String loggedUser = objectMapper.writeValueAsString(user);
+        response.setContentType("application/json");
+        response.setStatus(HttpServletResponse.SC_OK);
+        response.getWriter().write(loggedUser);
+    }
 }

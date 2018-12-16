@@ -4,8 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "shop_user")
-@SequenceGenerator(name = "idGenerator", sequenceName = "user_id_seq")
+@Table(name = "user")
 public class UserEntity extends AbstractEntity {
 
     @Column
@@ -17,7 +16,7 @@ public class UserEntity extends AbstractEntity {
     @Column
     private String name;
 
-    @Column
+    @Column(name = "last_name")
     private String lastname;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

@@ -8,20 +8,22 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import sdaproject.server.security.*;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
+    private final CustomAuthenticationEntryPoint authenticationEntryPoint;
     private final AuthenticationSuccessHandler authenticationSuccessHandler;
     private final AuthenticationFailureHandler authenticationFailureHandler;
     private final CustomUserDetailsService customUserDetailsService;
     private final CustomPasswordEncoder customPasswordEncoder;
     private final LogoutSuccess logoutSuccessHandler;
 
-    public WebSecurityConfig(AuthenticationSuccessHandler authenticationSuccessHandler, AuthenticationFailureHandler authenticationFailureHandler, CustomUserDetailsService customUserDetailsService, CustomPasswordEncoder customPasswordEncoder, LogoutSuccess logoutSuccessHandler) {
+    public WebSecurityConfig(CustomAuthenticationEntryPoint authenticationEntryPoint, AuthenticationSuccessHandler authenticationSuccessHandler, AuthenticationFailureHandler authenticationFailureHandler, CustomUserDetailsService customUserDetailsService, CustomPasswordEncoder customPasswordEncoder, LogoutSuccess logoutSuccessHandler) {
+        this.authenticationEntryPoint = authenticationEntryPoint;
         this.authenticationSuccessHandler = authenticationSuccessHandler;
         this.authenticationFailureHandler = authenticationFailureHandler;
         this.customUserDetailsService = customUserDetailsService;
@@ -37,6 +39,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
+                .exceptionHandling()
+                .defaultAuthenticationEntryPointFor(authenticationEntryPoint, new AntPathRequestMatcher("/api/**"))
+                .and()
             .authorizeRequests()
             .antMatchers("/**/open/**").permitAll()
             .antMatchers("/api/dictionary/**").permitAll()

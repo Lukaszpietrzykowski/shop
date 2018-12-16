@@ -13,17 +13,10 @@ import java.io.IOException;
 @Component
 public class LogoutSuccess implements LogoutSuccessHandler {
 
-    private final ObjectMapper objectMapper;
-
-    public LogoutSuccess(ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
-    }
 
     @Override
     public void onLogoutSuccess(HttpServletRequest httpServletRequest, HttpServletResponse response, Authentication authentication)
             throws IOException, ServletException {
-		response.setContentType("application/json");
-		response.getWriter().write( "logout success");
         response.setStatus(HttpServletResponse.SC_OK);
     }
 

@@ -13,15 +13,13 @@ import java.io.IOException;
 @Component
 public class AuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 
-	private final ObjectMapper objectMapper;
 
-	public AuthenticationFailureHandler(ObjectMapper objectMapper) {
-		this.objectMapper = objectMapper;
-	}
-
-	@Override
-	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-		response.setContentType("application/json");
-		response.getWriter().write( "failure" );
-	}
+    @Override
+    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
+        response.setContentType("application/json");
+        response.getWriter().write("failure");
+        response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+        response.setContentType("text/plain");
+        response.getWriter().write(exception.getMessage());
+    }
 }
