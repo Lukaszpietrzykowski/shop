@@ -33,7 +33,7 @@ export class ProductService {
   }
 
   public getProduct(id: number): Observable<ProductModel> {
-    return this.http.get("/api/product/open" + id).pipe(map((response: ProductModel) => {
+    return this.http.get("/api/product/open/" + id).pipe(map((response: ProductModel) => {
       return response;
     }));
   }

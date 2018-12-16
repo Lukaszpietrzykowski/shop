@@ -26,7 +26,7 @@ export class WarehouseService {
   }
 
   public getWarehouse(id: number): Observable<WarehouseModel> {
-    return this.http.get("/api/warehouse/open" + id).pipe(map((response: WarehouseModel) => {
+    return this.http.get("/api/warehouse/open/" + id).pipe(map((response: WarehouseModel) => {
       return response;
     }));
   }
