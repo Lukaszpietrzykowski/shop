@@ -1,11 +1,12 @@
 import {WarehouseModel} from "./warehouse.model";
 
 export class CartItemModel {
-  cartItemCount : number = 0;
-  warehouseItem : WarehouseModel = new WarehouseModel();
+  quantity: number = 0;
+  warehouseItem: WarehouseModel = new WarehouseModel();
 
-  public constructor(warehouseItem: WarehouseModel, cartItemCount: number) {
-    this.cartItemCount = cartItemCount;
+  public constructor(warehouseItem: WarehouseModel, quantity: number) {
+    this.quantity = quantity;
     this.warehouseItem = warehouseItem;
   }
+
 }

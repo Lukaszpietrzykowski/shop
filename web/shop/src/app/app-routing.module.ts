@@ -15,7 +15,6 @@ import {EditWarehouseComponent} from "./admin-panel/edit-warehouse/edit-warehous
 import {LoginComponent} from "./login/login.component";
 import {GuestGuard} from "./shared/guard/guest.guard";
 import {AdminGuard} from "./shared/guard/admin.guard";
-import {WarehouseModel} from "./shared/model/warehouse.model";
 import {CartComponent} from "./cart/cart.component";
 
 const routes: Routes = [

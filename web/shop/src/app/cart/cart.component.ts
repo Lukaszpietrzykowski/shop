@@ -8,11 +8,20 @@ import {CartService} from "../shared/service/cart.service";
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cart : CartModel = new CartModel();
 
-  constructor() { }
+  cart: CartModel = new CartModel();
+
+  constructor(private cartService: CartService) { }
 
   ngOnInit() {
+    this.cartService.getCartStream().subscribe((cart: CartModel) => {
+      this.cart = cart;
+    });
+  }
+
+  removeFromCart(warehouseItemId: number) {
+    console.log(warehouseItemId);
+    this.cartService.removeItem(warehouseItemId);
   }
 
 }

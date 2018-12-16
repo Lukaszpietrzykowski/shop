@@ -30,8 +30,6 @@ import {LoginGuard} from "./shared/guard/login.guard";
 import {AdminGuard} from "./shared/guard/admin.guard";
 import { CartComponent } from './cart/cart.component';
 import {CartService} from "./shared/service/cart.service";
-import {CartResolve} from "./shared/resolve/cart.resolve";
-
 export function initLoggedUserFactory(appService: AppService) {
   return () => appService.getLoggedUserInfo();
 }
@@ -52,7 +50,6 @@ export function initLoggedUserFactory(appService: AppService) {
     EditWarehouseComponent,
     LoginComponent,
     CartComponent
-
   ],
   imports: [
     BrowserModule,
@@ -84,7 +81,6 @@ export function initLoggedUserFactory(appService: AppService) {
     AuthService,
     AppService,
     CartService,
-    CartResolve
 
   ],
   bootstrap: [MainComponent]
