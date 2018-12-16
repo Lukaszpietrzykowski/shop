@@ -2,7 +2,7 @@
   <mat-toolbar-row>
     <span class="logo" routerLink="home">My shop</span>
     <span class="spacer"></span>
-    <button matTooltip="Przejdź do koszyka" mat-icon-button>
+    <button matTooltip="Przejdź do koszyka" routerLink="cart" mat-icon-button>
       <mat-icon>shopping_cart</mat-icon>
     </button>
     <button *hasAnyRole="['ROLE_ADMIN']" routerLink="admin-panel" matTooltip="Panel admina" mat-icon-button>

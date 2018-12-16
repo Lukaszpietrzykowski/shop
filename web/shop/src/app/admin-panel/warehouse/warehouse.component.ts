@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {ProductModel} from "../../shared/model/product.model";
 import {WarehouseModel} from "../../shared/model/warehouse.model";
 import {WarehouseService} from "../../shared/service/warehouse.service";
 import {ActivatedRoute} from "@angular/router";

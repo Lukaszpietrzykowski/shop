@@ -28,6 +28,9 @@ import {AuthService} from "./shared/service/auth.service";
 import {GuestGuard} from "./shared/guard/guest.guard";
 import {LoginGuard} from "./shared/guard/login.guard";
 import {AdminGuard} from "./shared/guard/admin.guard";
+import { CartComponent } from './cart/cart.component';
+import {CartService} from "./shared/service/cart.service";
+import {CartResolve} from "./shared/resolve/cart.resolve";
 
 export function initLoggedUserFactory(appService: AppService) {
   return () => appService.getLoggedUserInfo();
@@ -47,7 +50,8 @@ export function initLoggedUserFactory(appService: AppService) {
     OrdersComponent,
     WarehouseComponent,
     EditWarehouseComponent,
-    LoginComponent
+    LoginComponent,
+    CartComponent
 
   ],
   imports: [
@@ -78,7 +82,9 @@ export function initLoggedUserFactory(appService: AppService) {
     WarehousesResolve,
     ProductsDictionaryResolve,
     AuthService,
-    AppService
+    AppService,
+    CartService,
+    CartResolve
 
   ],
   bootstrap: [MainComponent]

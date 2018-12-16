@@ -1,0 +1,14 @@
+<tr>
+  <th>Nazwa</th>
+  <th>Cena Za Szt.</th>
+  <th>Ilosc</th>
+  <th>Cena</th>
+  <th>Akcje</th>
+</tr>
+<tr *ngFor="let item of cart.cartItems; let rowIndex = index">
+  <th>{{item.warehouseItem.productDTO.name}}</th>
+  <th>{{item.warehouseItem.productDTO.price}}</th>
+  <th>{{item.warehouseItem.quantity}}</th>
+  <th>CHUJ</th>
+  <th></th>
+</tr>

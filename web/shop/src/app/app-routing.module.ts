@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {AdminPanelComponent} from "./admin-panel/admin-panel.component";
 import {ProductsComponent} from "./admin-panel/products/products.component";
@@ -16,6 +16,7 @@ import {LoginComponent} from "./login/login.component";
 import {GuestGuard} from "./shared/guard/guest.guard";
 import {AdminGuard} from "./shared/guard/admin.guard";
 import {WarehouseModel} from "./shared/model/warehouse.model";
+import {CartComponent} from "./cart/cart.component";
 
 const routes: Routes = [
   {
@@ -26,7 +27,7 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    resolve:{
+    resolve: {
       warehouse: WarehousesResolve
 
     }
@@ -35,6 +36,10 @@ const routes: Routes = [
     path: "login",
     component: LoginComponent,
     canActivate: [GuestGuard]
+  },
+  {
+    path: "cart",
+    component: CartComponent
   },
   {
     path: "login",
@@ -64,14 +69,14 @@ const routes: Routes = [
       {
         path: 'warehouse',
         component: WarehouseComponent,
-        resolve:{
+        resolve: {
           warehouse: WarehousesResolve,
         }
       },
       {
         path: 'warehouse/add',
         component: EditWarehouseComponent,
-        resolve:{
+        resolve: {
           products: ProductsDictionaryResolve
 
         }
@@ -142,4 +147,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

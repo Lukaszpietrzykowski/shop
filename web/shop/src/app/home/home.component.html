@@ -15,10 +15,11 @@
         <div class="button-row">
           <button mat-flat-button color="accent">Więcej</button>
           <button mat-flat-button color="primary">Kup</button>
-          <!--<button *ngIf="!isInCart(warehouseItem.id)" (click)="addToCart(warehouseItem)" mat-flat-button color="primary">Kup</button>-->
-          <!--<button *ngIf="isInCart(warehouseItem.id)" [routerLink]="['/', 'cart']" mat-flat-button color="primary">Koszyk</button>-->
-        </div>
+          <button *ngIf="!isInCart(warehouseItem.id)" (click)="addToCart(warehouseItem)" mat-flat-button color="primary">Kup</button>
+          <!--<button *ngIf="isInCart(warehouseItem.id)" [routerLink]="['/', 'cart']" mat-flat-button color="primary">Koszyk</button>
+       --> </div>
       </mat-card-actions>
     </mat-card>
   </section>
 </div>
+;
