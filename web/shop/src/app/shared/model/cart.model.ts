@@ -28,5 +28,15 @@ export class CartModel {
   public containsItem(warehouseId: number): boolean {
     return this.items.filter(item => item.warehouseItem.id == warehouseId).length > 0;
   }
+
+  public clearCart() {
+    this.items = [];
+  }
+
+  public summary(): number {
+    return this.items.map(item => item.warehouseItem.productDTO.price * item.quantity).reduce((item1, item2) => item1 + item2, 0);
+  }
+
+
 }
 

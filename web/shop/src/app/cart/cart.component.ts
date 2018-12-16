@@ -24,4 +24,20 @@ export class CartComponent implements OnInit {
     this.cartService.removeItem(warehouseItemId);
   }
 
+  cartSummary(): number {
+    return this.cartService.summary();
+  }
+
+  clearCart() {
+    this.cartService.clearCart();
+  }
+
+  updateCart() {
+    this.cartService.updateCart(this.cart);
+  }
+
+  isEmptyCart(): boolean {
+    return this.cartService.isEmpty();
+  }
+
 }

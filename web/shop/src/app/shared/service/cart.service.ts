@@ -40,5 +40,28 @@ export class CartService {
     return this.cart.containsItem(warehouseId);
   }
 
+  public updateCart(cart: CartModel) {
+    this.cart.initCart(cart);
+    localStorage.setItem('cart', JSON.stringify(this.cart));
+    this.cartStream.next(this.cart);
+  }
+
+  public clearCart() {
+    this.cart.clearCart();
+    localStorage.setItem('cart', JSON.stringify(this.cart));
+    this.cartStream.next(this.cart);
+  }
+
+  public summary(): number {
+    return this.cart.summary();
+  }
+
+  public getCartInfo() {
+    let tempCart = localStorage.getItem('cart');
+    if (tempCart) {
+      this.cart.initCart(JSON.parse(tempCart));
+      this.cartStream.next(this.cart);
+    }
+  }
 
 }
