@@ -25,6 +25,9 @@ import {WarehouseService} from "./shared/service/warehouse.service";
 import {LoginComponent} from "./login/login.component";
 import {AppService} from "./shared/service/app.service";
 import {AuthService} from "./shared/service/auth.service";
+import {GuestGuard} from "./shared/guard/guest.guard";
+import {LoginGuard} from "./shared/guard/login.guard";
+import {AdminGuard} from "./shared/guard/admin.guard";
 
 export function initLoggedUserFactory(appService: AppService) {
   return () => appService.getLoggedUserInfo();
@@ -61,7 +64,9 @@ export function initLoggedUserFactory(appService: AppService) {
       deps: [AppService],
       multi: true
     },
-
+    GuestGuard,
+    LoginGuard,
+    AdminGuard,
     ProductCategoryService,
     ProductCategoriesResolve,
     ProductCategoryResolve,

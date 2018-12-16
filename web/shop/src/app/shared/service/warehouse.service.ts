@@ -17,7 +17,7 @@ export class WarehouseService {
   constructor(private http: HttpClient) { }
 
   public getWarehouses() : Observable<Array<WarehouseModel>> {
-    return this.http.get("/api/warehouse").pipe(
+    return this.http.get("/api/warehouse/open").pipe(
       map((response: Array<WarehouseModel>) => {
         this.warehouse = response;
         this.warehouseStream.next(this.warehouse);
@@ -26,7 +26,7 @@ export class WarehouseService {
   }
 
   public getWarehouse(id: number): Observable<WarehouseModel> {
-    return this.http.get("/api/warehouse/" + id).pipe(map((response: WarehouseModel) => {
+    return this.http.get("/api/warehouse/open" + id).pipe(map((response: WarehouseModel) => {
       return response;
     }));
   }

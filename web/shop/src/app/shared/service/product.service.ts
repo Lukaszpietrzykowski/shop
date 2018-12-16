@@ -24,7 +24,7 @@ export class ProductService {
   }
 
   public getProducts(): Observable<Array<ProductModel>> {
-    return this.http.get("/api/product").pipe(
+    return this.http.get("/api/product/open").pipe(
       map((response: Array<ProductModel>) => {
       this.product = response;
       this.productStream.next(this.product);
@@ -33,7 +33,7 @@ export class ProductService {
   }
 
   public getProduct(id: number): Observable<ProductModel> {
-    return this.http.get("/api/product/" + id).pipe(map((response: ProductModel) => {
+    return this.http.get("/api/product/open" + id).pipe(map((response: ProductModel) => {
       return response;
     }));
   }

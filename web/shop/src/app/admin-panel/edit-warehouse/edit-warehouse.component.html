@@ -13,7 +13,7 @@
       <form>
         <mat-form-field class="half-widtch">
           <mat-select placeholder="Produkt" [(ngModel)]="warehouse.productDTO.id" name="product">
-            <mat-option *ngFor="let productName of products" [value]="productName.id">
+            <mat-option *ngFor="let productName of products" [value]="productName.id" >
               {{productName.name}}
             </mat-option>
           </mat-select>

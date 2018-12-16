@@ -14,6 +14,7 @@ import {WarehouseResolve, WarehousesResolve} from "./shared/resolve/warehouse.re
 import {EditWarehouseComponent} from "./admin-panel/edit-warehouse/edit-warehouse.component";
 import {LoginComponent} from "./login/login.component";
 import {GuestGuard} from "./shared/guard/guest.guard";
+import {AdminGuard} from "./shared/guard/admin.guard";
 
 const routes: Routes = [
   {
@@ -30,6 +31,11 @@ const routes: Routes = [
     component: LoginComponent,
     canActivate: [GuestGuard]
   },
+  {
+    path: "login",
+    component: LoginComponent,
+    canActivate: [GuestGuard]
+  },
 
   {
     path: 'admin-panel',
@@ -38,7 +44,8 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'products',
-        pathMatch: 'prefix'
+        pathMatch: 'prefix',
+        canActivate: [AdminGuard]
       },
       {
         path: 'home',

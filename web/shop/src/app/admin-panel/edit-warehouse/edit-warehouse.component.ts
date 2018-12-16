@@ -3,7 +3,6 @@ import {Location} from "@angular/common";
 import {ActivatedRoute} from "@angular/router";
 import {WarehouseService} from "../../shared/service/warehouse.service";
 import {WarehouseModel} from "../../shared/model/warehouse.model";
-import {ProductModel} from "../../shared/model/product.model";
 import {DictionaryModel} from "../../shared/model/dictionary.model";
 
 @Component({
@@ -11,6 +10,9 @@ import {DictionaryModel} from "../../shared/model/dictionary.model";
   templateUrl: './edit-warehouse.component.html',
   styleUrls: ['./edit-warehouse.component.css']
 })
+
+
+
 export class EditWarehouseComponent implements OnInit {
 
   warehouse: WarehouseModel = new WarehouseModel();
