@@ -1,3 +1,23 @@
-<p>
-  home works!
-</p>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let warehouseItem of warehouse; let rowIndex = index">
+    <mat-card class="example-full-width">
+
+      <mat-card-title>
+        {{warehouseItem.productDTO.name}}
+      </mat-card-title>
+
+      <mat-divider></mat-divider>
+
+      <mat-card-content>
+        Cena: {{warehouseItem.productDTO.price}}
+      </mat-card-content>
+
+      <mat-divider></mat-divider>
+
+      <mat-card-footer>
+        Ilość: {{warehouseItem.quantity}}
+      </mat-card-footer>
+
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

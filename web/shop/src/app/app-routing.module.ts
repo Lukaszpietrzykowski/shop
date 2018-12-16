@@ -15,6 +15,7 @@ import {EditWarehouseComponent} from "./admin-panel/edit-warehouse/edit-warehous
 import {LoginComponent} from "./login/login.component";
 import {GuestGuard} from "./shared/guard/guest.guard";
 import {AdminGuard} from "./shared/guard/admin.guard";
+import {WarehouseModel} from "./shared/model/warehouse.model";
 
 const routes: Routes = [
   {
@@ -24,7 +25,11 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    resolve:{
+      warehouse: WarehousesResolve
+
+    }
   },
   {
     path: "login",
